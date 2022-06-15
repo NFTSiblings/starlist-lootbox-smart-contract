@@ -30,7 +30,7 @@ contract StarlistLootboxBeta is AdminPrivileges {
     mapping(address => uint8) public claimed;
     bytes32 private merkleRootOne;
     bytes32 private merkleRootTwo;
-    uint8[] private poetTokenIDs = [0,1,2,3,4]; // IDs in this array must be updated on deployment
+    uint8[] private poetTokenIDs = [0, 1, 2, 3, 4]; // IDs in this array must be updated on deployment
 
     function setMerkleRoots(bytes32 rootOne, bytes32 rootTwo) public onlyAdmins {
         merkleRootOne = rootOne;
@@ -38,18 +38,15 @@ contract StarlistLootboxBeta is AdminPrivileges {
     }
 
     function claim(bytes32[] calldata _merkleProof) public {
-        bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
-        bool page = MerkleProof.verify(_merkleProof, merkleRootOne, leaf);
-        bool poet = MerkleProof.verify(_merkleProof, merkleRootTwo, leaf);
-
-        require(page || poet, "Invalid Merkle proof");
         require(claimed[msg.sender] == 0, "This wallet has already claimed");
-
         claimed[msg.sender]++;
 
-        if (page) {
+        bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
+        if (MerkleProof.verify(_merkleProof, merkleRootOne, leaf)) {
             IERC1155(LOSTPOETS_PAGES).safeTransferFrom(VAULT, msg.sender, 1, 1, "");
-        } else if (poet) {
+        } else {
+            require(MerkleProof.verify(_merkleProof, merkleRootTwo, leaf), "Invalid Merkle proof");
+
             uint8 id = poetTokenIDs[poetTokenIDs.length - 1];
             poetTokenIDs.pop();
 

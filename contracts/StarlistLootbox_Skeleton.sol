@@ -9,8 +9,9 @@ interface IERC721 {}
 interface IERC1155 {}
 
 contract StarlistLootboxSkeleton is AdminPrivileges {
-    bytes32 merkleRootOne;
-    bytes32 merkleRootTwo;
+    bytes32 public merkleRootOne;
+    bytes32 public merkleRootTwo;
+    uint8[] private poetTokenIDs;
     mapping(address => uint8) public claimed;
 
     function setMerkleRoots(bytes32 rootOne, bytes32 rootTwo) public onlyAdmins {}
