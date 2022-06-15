@@ -17,7 +17,7 @@ const { isCallTrace } = require("hardhat/internal/hardhat-network/stack-traces/m
  */
 
 beforeEach(async function () {
-    [owner, addr1, addr2] = await ethers.getSigners();
+    [owner, addr1, addr2, addr3] = await ethers.getSigners();
 
     contract = await ethers.getContractFactory("MyToken721");
     // This ERC721 contract automatically mints 5 tokens to the deploying wallet
@@ -52,6 +52,13 @@ beforeEach(async function () {
         '0x3f933fac88b328d711a101bcd6e0f93686e681b6bb78d2ed044185c29f87719e',
         '0x6bdebc196b5d4fd6effd732bbb12f6c9a9dc322c1a138e5fb98cc7500741e89f'
     ];
+
+    merkleProofAddr3 = [
+        '0x00314e565e0574cb412563df634608d76f5c59d9f817e85966100ec1d48005c0',
+        '0xf24a4dcb4a3ee2c54bf215cfe6be755201e573ad8f6a778851425006cbc9915d',
+        '0x12df2a23b0889255874e67c32642bb04ec44a48dccb81381e16a73900a719081',
+        '0x11c302f4e7d66f5a729f48fab3b5ff0f46269cfb2ec323bf3f18de489b7b5559'
+    ]
 });
 
 describe("Uninitialised merkle root", function () {
@@ -133,6 +140,13 @@ describe("Claiming prizes", function () {
             await StarlistLootbox.connect(addr1).claim(merkleProofAddr1);
             await expect(StarlistLootbox.connect(addr1).claim(merkleProofAddr1))
             .to.be.revertedWith("This wallet has already claimed");
+
+        });
+
+        it("Multiple poets can be claimed", async function () {
+
+            await StarlistLootbox.connect(addr1).claim(merkleProofAddr1);
+            await StarlistLootbox.connect(addr3).claim(merkleProofAddr3);
 
         });
     });

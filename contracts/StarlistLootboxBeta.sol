@@ -23,9 +23,9 @@ interface IERC1155 {
 }
 
 contract StarlistLootboxBeta is AdminPrivileges {
-    address constant private LOSTPOETS_PAGES = 0xc256f2Cd270f9296C4f6c42A07639e581a5A23E7;
-    address constant private LOSTPOETS = 0x0E1d3a11a9684B907212b51dC4A06d4F793329dA;
-    address constant private VAULT = 0x699a1928EA12D21dd2138F36A3690059bf1253A0;
+    address constant private LOSTPOETS_PAGES = 0xc256f2Cd270f9296C4f6c42A07639e581a5A23E7; // Must be updated on deployment
+    address constant private LOSTPOETS = 0x0E1d3a11a9684B907212b51dC4A06d4F793329dA; // Must be updated on deployment
+    address constant private VAULT = 0x699a1928EA12D21dd2138F36A3690059bf1253A0; // Must be updated on deployment
 
     mapping(address => uint8) public claimed;
     bytes32 private merkleRootOne;

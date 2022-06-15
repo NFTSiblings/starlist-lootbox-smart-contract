@@ -628,8 +628,8 @@
       ]
     },
     "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/StarlistLootboxBeta.sol": {
-      "lastModificationDate": 1655288108982,
-      "contentHash": "75696ed4abcce70249134dc37e388e11",
+      "lastModificationDate": 1655290714258,
+      "contentHash": "ee6f623c2772f113ef9f648b061a4996",
       "sourceName": "contracts/StarlistLootboxBeta.sol",
       "solcConfig": {
         "version": "0.8.1",
@@ -668,8 +668,8 @@
       ]
     },
     "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/StarlistLootbox_Skeleton.sol": {
-      "lastModificationDate": 1655288296032,
-      "contentHash": "7b0e0266b30f02bf5e713154427c37eb",
+      "lastModificationDate": 1655290829337,
+      "contentHash": "c5e5ac4c5b262780b910bbe3812e13e7",
       "sourceName": "contracts/StarlistLootbox_Skeleton.sol",
       "solcConfig": {
         "version": "0.8.1",
@@ -708,8 +708,8 @@
       ]
     },
     "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/StarlistLootboxBetaHardhat.sol": {
-      "lastModificationDate": 1655289971983,
-      "contentHash": "8baf0160a21ef08097dbb7ae02e8d237",
+      "lastModificationDate": 1655290709508,
+      "contentHash": "2b56b9813d9472895760012a7c27393a",
       "sourceName": "contracts/StarlistLootboxBetaHardhat.sol",
       "solcConfig": {
         "version": "0.8.1",
