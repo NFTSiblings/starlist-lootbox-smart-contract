@@ -2,7 +2,7 @@
 
 This smart contract will facilitate the transfer of Lost Poets NFTs to ‘starlist’ members.
 
-Each wallet on the starlist is guaranteed either a page or a poet from the Lost Poets collection. 5 wallets will receive a poet NFT, and the remaining 95 will receive a page NFT.
+Each wallet on the starlist is guaranteed either a page or a poet from the Lost Poets collection. 3 wallets will receive a poet NFT, and the remaining 47 will receive a page NFT.
 
 The wallets which will receive poets will be determined beforehand with a randomisation process.
 
@@ -14,7 +14,7 @@ First, a new wallet must be created, and all of the prize NFTs sent to this vaul
 
 Collectors will call a single ‘claim’ function from our smart contract through a front-end interface which will be created to accompany this smart contract.
 
-A merkle tree will be generated from the 5 addresses which have ‘won’ a poet, and another merkle tree will be created from the 95 addresses which are to receive a page.
+A merkle tree will be generated from the 3 addresses which have ‘won’ a poet, and another merkle tree will be created from the 47 addresses which are to receive a page.
 
 When a wallet calls the claim function, the function will check whether the calling wallet address is part of either merkle tree, and send the corresponding NFT to the caller by calling the `safeTransferFrom` function on the Lost Poets or Lost Poets Pages contract. The vault wallet will approve our smart contract for transfer of the poets and pages beforehand, so that the transfer can occur instantly. The function will then write to a mapping of addresses to show that the calling wallet has already claimed, and therefore cannot claim again.
 
