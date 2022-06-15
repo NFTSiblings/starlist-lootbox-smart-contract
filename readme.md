@@ -31,7 +31,7 @@ When a wallet calls the claim function, the function will check whether the call
 **After Deployment**
 
 - On the Lost Poets and Lost Poets Pages smart contracts, grant approval to our Lootbox Giveaway smart contract to transfer the poet and page NFTs.
-- Claiming will not be available for users until we set the variables `merkleRootOne` and `merkleRootTwo`. This is done by calling the function `setMerkleRoots` on our smart contract. The merkle root values are shown below, but **these values represent the lists of addresses as at 06-15-22** and must be re-generated if the lists of addresses change before deployment. Speak to Ethan if the lists change to get updated merkle root values.
+- Claiming will not be available for users until we set the variables `merkleRootOne` and `merkleRootTwo`. This is done by calling the function `setMerkleRoots` on our smart contract.
 
 ## Timeline
 
