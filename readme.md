@@ -49,3 +49,4 @@ When a wallet calls the claim function, the function will check whether the call
 - The Merkle root could be inputted incorrectly, leading to the claim function not working correctly. This can be resolved by updating the Merkle root variables with `setMerkleRoots`.
 - The `poetTokenIDs` array is hardcoded with incorrect IDs. This can only be resolved by deploying a new smart contract.
 - The vault wallet is hardcoded incorrectly. This can only be resolved by deploying a new smart contract.
+- If a winner’s wallet address is accidentally included in both merkle trees (i.e. eligible to win a page and a poet), they will receive a page when they run the claim function, and won’t receive a poet.

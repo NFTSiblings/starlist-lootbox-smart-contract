@@ -37,7 +37,9 @@ beforeEach(async function () {
     )
 
     // Grant approvals to StarlistLootbox contract to transfer prize NFTs
-    for (i = 0; i < 5; i++) { await MyToken721.approve(StarlistLootbox.address, i); }
+    await MyToken721.approve(StarlistLootbox.address, 3011);
+    await MyToken721.approve(StarlistLootbox.address, 3009);
+    await MyToken721.approve(StarlistLootbox.address, 3008);
     await MyToken1155.setApprovalForAll(StarlistLootbox.address, true);
 
     // An uninitialised bytes32 value
@@ -151,8 +153,8 @@ describe("Claiming prizes", function () {
 
             await StarlistLootbox.connect(addr1).claim(merkleProofAddr1);
             expect(await MyToken721.balanceOf(addr1.address)).to.equal(1);
-            expect(await MyToken721.ownerOf(4)).to.equal(addr1.address);
-            expect(await MyToken721.balanceOf(owner.address)).to.equal(4);
+            expect(await MyToken721.ownerOf(3008)).to.equal(addr1.address);
+            expect(await MyToken721.balanceOf(owner.address)).to.equal(2);
     
         });
 
@@ -161,8 +163,8 @@ describe("Claiming prizes", function () {
             await StarlistLootbox.setMerkleRoots(bytesZero, altMerkleRoot);
             await StarlistLootbox.connect(addr1).claim(altMerkleProof);
             expect(await MyToken721.balanceOf(addr1.address)).to.equal(1);
-            expect(await MyToken721.ownerOf(4)).to.equal(addr1.address);
-            expect(await MyToken721.balanceOf(owner.address)).to.equal(4);
+            expect(await MyToken721.ownerOf(3008)).to.equal(addr1.address);
+            expect(await MyToken721.balanceOf(owner.address)).to.equal(2);
 
         });
 

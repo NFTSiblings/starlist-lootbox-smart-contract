@@ -71,43 +71,6 @@
         "MerkleProof"
       ]
     },
-    "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/ERC1155.sol": {
-      "lastModificationDate": 1655279248340,
-      "contentHash": "5568bce5762eb284603759e99a568b80",
-      "sourceName": "contracts/ERC1155.sol",
-      "solcConfig": {
-        "version": "0.8.1",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC1155/ERC1155.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.1"
-      ],
-      "artifacts": [
-        "MyToken1155"
-      ]
-    },
     "/Users/ethanwizard/node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol": {
       "lastModificationDate": 1655277146391,
       "contentHash": "792473360274d02eed0fe4c691d67d16",
@@ -590,46 +553,9 @@
         "Strings"
       ]
     },
-    "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/ERC721.sol": {
-      "lastModificationDate": 1655279240810,
-      "contentHash": "017bd0853198f864894887e973a18363",
-      "sourceName": "contracts/ERC721.sol",
-      "solcConfig": {
-        "version": "0.8.1",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.1"
-      ],
-      "artifacts": [
-        "MyToken721"
-      ]
-    },
     "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/StarlistLootboxBeta.sol": {
-      "lastModificationDate": 1655299677968,
-      "contentHash": "ad1e8c1f8a647ee25962745820d6f18a",
+      "lastModificationDate": 1655353808673,
+      "contentHash": "e0fcc3f28d1cf6f35e22f2669eaa1b7b",
       "sourceName": "contracts/StarlistLootboxBeta.sol",
       "solcConfig": {
         "version": "0.8.1",
@@ -667,49 +593,9 @@
         "StarlistLootboxBeta"
       ]
     },
-    "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/StarlistLootbox_Skeleton.sol": {
-      "lastModificationDate": 1655290829337,
-      "contentHash": "c5e5ac4c5b262780b910bbe3812e13e7",
-      "sourceName": "contracts/StarlistLootbox_Skeleton.sol",
-      "solcConfig": {
-        "version": "0.8.1",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@siblings/modules/AdminPrivileges.sol",
-        "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC1155",
-        "IERC721",
-        "StarlistLootboxSkeleton"
-      ]
-    },
     "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/StarlistLootboxBetaHardhat.sol": {
-      "lastModificationDate": 1655290709508,
-      "contentHash": "2b56b9813d9472895760012a7c27393a",
+      "lastModificationDate": 1655353803621,
+      "contentHash": "758a17473d7cb536942c663774ad87f8",
       "sourceName": "contracts/StarlistLootboxBetaHardhat.sol",
       "solcConfig": {
         "version": "0.8.1",
@@ -745,6 +631,120 @@
         "IERC1155",
         "IERC721",
         "StarlistLootboxBetaHardhat"
+      ]
+    },
+    "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/SampleERC1155.sol": {
+      "lastModificationDate": 1655352875116,
+      "contentHash": "5568bce5762eb284603759e99a568b80",
+      "sourceName": "contracts/SampleERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.1",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC1155/ERC1155.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "MyToken1155"
+      ]
+    },
+    "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/SampleERC721.sol": {
+      "lastModificationDate": 1655353872834,
+      "contentHash": "f692560082dd3249b4e246151f293cd6",
+      "sourceName": "contracts/SampleERC721.sol",
+      "solcConfig": {
+        "version": "0.8.1",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "MyToken721"
+      ]
+    },
+    "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/StarlistLootboxSkeleton.sol": {
+      "lastModificationDate": 1655352878905,
+      "contentHash": "c5e5ac4c5b262780b910bbe3812e13e7",
+      "sourceName": "contracts/StarlistLootboxSkeleton.sol",
+      "solcConfig": {
+        "version": "0.8.1",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@siblings/modules/AdminPrivileges.sol",
+        "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155",
+        "IERC721",
+        "StarlistLootboxSkeleton"
       ]
     }
   }

@@ -30,7 +30,7 @@ contract StarlistLootboxBetaHardhat is AdminPrivileges {
     mapping(address => uint8) public claimed;
     bytes32 private merkleRootOne;
     bytes32 private merkleRootTwo;
-    uint8[] private poetTokenIDs = [3011, 3009, 3008]; // Double check these IDs before deployment
+    uint16[] private poetTokenIDs = [3011, 3009, 3008]; // Double check these IDs before deployment
 
     // constructor unnecessary on deployment to mainnet,
     // all addresses will be hardcoded
@@ -55,7 +55,7 @@ contract StarlistLootboxBetaHardhat is AdminPrivileges {
         } else {
             require(MerkleProof.verify(_merkleProof, merkleRootTwo, leaf), "Invalid Merkle proof");
 
-            uint8 id = poetTokenIDs[poetTokenIDs.length - 1];
+            uint16 id = poetTokenIDs[poetTokenIDs.length - 1];
             poetTokenIDs.pop();
 
             IERC721(LOSTPOETS).safeTransferFrom(VAULT, msg.sender, id);
