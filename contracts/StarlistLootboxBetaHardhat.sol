@@ -30,7 +30,7 @@ contract StarlistLootboxBetaHardhat is AdminPrivileges {
     mapping(address => uint8) public claimed;
     bytes32 private merkleRootOne;
     bytes32 private merkleRootTwo;
-    uint8[] private poetTokenIDs = [0, 1, 2, 3, 4]; // IDs in this array must be updated on deployment
+    uint8[] private poetTokenIDs = [3011, 3009, 3008]; // Double check these IDs before deployment
 
     // constructor unnecessary on deployment to mainnet,
     // all addresses will be hardcoded
