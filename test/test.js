@@ -30,14 +30,20 @@ beforeEach(async function () {
     contract = await ethers.getContractFactory("StarlistLootboxBetaHardhat");
     StarlistLootbox = await contract.deploy(MyToken1155.address, MyToken721.address, owner.address);
 
+    // Set Merkle roots
     await StarlistLootbox.setMerkleRoots(
         "0x877fe7274418177acaa0699f32f89694321a25b17f7304db1c013d60570020d7",
         "0x21d221c85435a38e43ed164e11b98be3f57bb2819a7cea8534f5a21f751fbc21"
     )
+
+    // Grant approvals to StarlistLootbox contract to transfer prize NFTs
     for (i = 0; i < 5; i++) { await MyToken721.approve(StarlistLootbox.address, i); }
     await MyToken1155.setApprovalForAll(StarlistLootbox.address, true);
 
-    sampleMerkleRoot = "0x0000000000000000000000000000000000000000000000000000000000000000";
+    // An uninitialised bytes32 value
+    bytesZero = "0x0000000000000000000000000000000000000000000000000000000000000000";
+    // A Merkle root generated from all hardhat signers
+    altMerkleRoot = "0xd38a533706a576a634c618407eb607df606d62179156c0bed7ab6c2088b01de9";
 
     merkleProofAddr1 = [
         '0x1ebaa930b8e9130423c183bf38b0564b0103180b7dad301013b18e59880541ae',
@@ -59,17 +65,25 @@ beforeEach(async function () {
         '0x12df2a23b0889255874e67c32642bb04ec44a48dccb81381e16a73900a719081',
         '0x11c302f4e7d66f5a729f48fab3b5ff0f46269cfb2ec323bf3f18de489b7b5559'
     ]
+
+    altMerkleProof = [
+        '0xe9707d0e6171f728f7473c24cc0432a9b07eaaf1efed6a137a4a8c12c79552d9',
+        '0x7e0eefeb2d8740528b8f598997a219669f0842302d3c573e9bb7262be3387e63',
+        '0x90a5fdc765808e5a2e0d816f52f09820c5f167703ce08d078eb87e2c194c5525',
+        '0x5a34698734dde87d16cbecce5d1c793eed47d6456e40489b991d8fb9e370a92d',
+        '0x6d6cbee8dcc53afd0fe8468716e17f2c38de5112a301ca32c586f1daa063b47d'
+    ]
 });
 
 describe("Uninitialised merkle root", function () {
     it("No wallets can mint if the merkle root variables are uninitialised", async function () {
         // This is equivalent to leaving the merkle roots unintialised
-        await StarlistLootbox.setMerkleRoots(sampleMerkleRoot, sampleMerkleRoot);
+        await StarlistLootbox.setMerkleRoots(bytesZero, bytesZero);
 
         await expect(StarlistLootbox.connect(addr1).claim([]))
         .to.be.revertedWith("Invalid Merkle proof");
 
-        await expect(StarlistLootbox.connect(addr1).claim([sampleMerkleRoot]))
+        await expect(StarlistLootbox.connect(addr1).claim([bytesZero]))
         .to.be.revertedWith("Invalid Merkle proof");
 
         await expect(StarlistLootbox.connect(addr1).claim(merkleProofAddr1))
@@ -83,10 +97,10 @@ describe("Uninitialised merkle root", function () {
 describe("Setting merkle roots", function () {
     it("Only admins may set merkle roots", async function () {
 
-        await expect(StarlistLootbox.connect(addr1).setMerkleRoots(sampleMerkleRoot, sampleMerkleRoot))
+        await expect(StarlistLootbox.connect(addr1).setMerkleRoots(altMerkleRoot, altMerkleRoot))
         .to.be.revertedWith("AdminPrivileges: caller is not an admin");
 
-        await StarlistLootbox.setMerkleRoots(sampleMerkleRoot, sampleMerkleRoot);
+        await StarlistLootbox.setMerkleRoots(altMerkleRoot, altMerkleRoot);
 
     });
 });
@@ -114,6 +128,15 @@ describe("Claiming prizes", function () {
     
         });
 
+        it("Winner can claim page after Merkle root has been updated", async function () {
+
+            await StarlistLootbox.setMerkleRoots(altMerkleRoot, bytesZero);
+            await StarlistLootbox.connect(addr1).claim(altMerkleProof);
+            expect(await MyToken1155.balanceOf(addr1.address, 1)).to.equal(1);
+            expect(await MyToken1155.balanceOf(owner.address, 1)).to.equal(4);
+
+        });
+
         it("Winner cannot claim more than once", async function () {
 
             await StarlistLootbox.connect(addr2).claim(merkleProofAddr2);
@@ -131,6 +154,16 @@ describe("Claiming prizes", function () {
             expect(await MyToken721.ownerOf(4)).to.equal(addr1.address);
             expect(await MyToken721.balanceOf(owner.address)).to.equal(4);
     
+        });
+
+        it("Winner can claim poet after Merkle root has been updated", async function () {
+
+            await StarlistLootbox.setMerkleRoots(bytesZero, altMerkleRoot);
+            await StarlistLootbox.connect(addr1).claim(altMerkleProof);
+            expect(await MyToken721.balanceOf(addr1.address)).to.equal(1);
+            expect(await MyToken721.ownerOf(4)).to.equal(addr1.address);
+            expect(await MyToken721.balanceOf(owner.address)).to.equal(4);
+
         });
 
         it("Winner cannot claim more than once", async function () {

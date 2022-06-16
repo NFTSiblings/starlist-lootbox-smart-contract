@@ -628,8 +628,8 @@
       ]
     },
     "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/StarlistLootboxBeta.sol": {
-      "lastModificationDate": 1655290714258,
-      "contentHash": "ee6f623c2772f113ef9f648b061a4996",
+      "lastModificationDate": 1655299677968,
+      "contentHash": "ad1e8c1f8a647ee25962745820d6f18a",
       "sourceName": "contracts/StarlistLootboxBeta.sol",
       "solcConfig": {
         "version": "0.8.1",
