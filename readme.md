@@ -2,15 +2,15 @@
 
 This smart contract will facilitate the transfer of Lost Poets NFTs to ‘starlist’ members.
 
-Each wallet on the starlist is guaranteed either a page or a poet from the Lost Poets collection. 3 wallets will receive a poet NFT, and the remaining 47 will receive a page NFT.
+Each wallet on the starlist (50 total) is guaranteed either a page or a poet from the Lost Poets collection. 3 wallets will receive a poet NFT, and the remaining 47 will receive a page NFT.
 
-The wallets which will receive poets will be determined beforehand with a randomisation process.
+The wallets which will receive poets will be determined randomly beforehand.
 
 Users will be able to call a claim function on the smart contract to be automatically transferred their prize NFT.
 
 ## **Technical Description**
 
-First, a new wallet must be created, and all of the prize NFTs sent to this vault wallet (herein ‘vault’).
+First, a new wallet must be created, and all of the prize NFTs sent to this vault wallet.
 
 Collectors will call a single ‘claim’ function from our smart contract through a front-end interface which will be created to accompany this smart contract.
 
@@ -44,7 +44,7 @@ When a wallet calls the claim function, the function will check whether the call
 
 - Update Merkle root variables using `setMerkleRoots`
 
-## Potential Issues
+## Potential issues
 
 - The Merkle root could be inputted incorrectly, leading to the claim function not working correctly. This can be resolved by updating the Merkle root variables with `setMerkleRoots`.
 - The `poetTokenIDs` array is hardcoded with incorrect IDs. This can only be resolved by deploying a new smart contract.
