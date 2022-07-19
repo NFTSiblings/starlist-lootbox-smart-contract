@@ -1,7 +1,6 @@
 const { inputToConfig } = require("@ethereum-waffle/compiler");
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
-const { isCallTrace } = require("hardhat/internal/hardhat-network/stack-traces/message-trace");
 
 /**
  * This test script has been written for the beta version of the

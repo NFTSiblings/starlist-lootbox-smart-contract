@@ -746,6 +746,46 @@
         "IERC721",
         "StarlistLootboxSkeleton"
       ]
+    },
+    "/Users/ethanwizard/Documents/GitHub/starlist-lootbox-smart-contract/contracts/StarlistLootboxProd.sol": {
+      "lastModificationDate": 1658209322891,
+      "contentHash": "8b7705fb8095c439b91101f15969a56e",
+      "sourceName": "contracts/StarlistLootboxProd.sol",
+      "solcConfig": {
+        "version": "0.8.1",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@siblings/modules/AdminPrivileges.sol",
+        "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155",
+        "IERC721",
+        "StarlistLootbox"
+      ]
     }
   }
 }
